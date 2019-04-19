@@ -22,7 +22,7 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (haskell-mode hungry-delete markdown-mode openwith proof-general smex switch-window)))
+    (haskell-mode hungry-delete markdown-mode openwith proof-general switch-window)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 (custom-set-faces

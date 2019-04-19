@@ -10,14 +10,16 @@
 (defvar my/packages '(
 		      2048-game
 		      company
+		      counsel
 		      expand-region
 		      haskell-mode
+		      helm-ag
 		      hungry-delete
 		      markdown-mode
 		      openwith
 		      popwin
 		      proof-general
-		      smex
+		      swiper
 		      switch-window
 		      ) "Default packages")
 
