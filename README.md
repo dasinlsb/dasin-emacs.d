@@ -3,5 +3,4 @@
 only maintain the following:
 
 + init.el
-+ lisp
-  + *
++ lisp/*
