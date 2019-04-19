@@ -33,9 +33,10 @@
    (quote
     (emacs-lisp-mode lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode coq-mode haskell-mode agda-mode agda2-mode python-mode fundamental-mode)))
  '(global-auto-complete-mode t)
+ '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (openwith switch-window smex proof-general haskell-mode auto-complete markdown-mode hungry-delete)))
+    (2048-game auto-complete haskell-mode hungry-delete markdown-mode openwith proof-general smex switch-window)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 (custom-set-faces
