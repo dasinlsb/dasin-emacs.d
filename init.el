@@ -14,29 +14,15 @@
 ;; ------------------
 (require 'init-packages)
 
-
-
-
-
-
-
-
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-auto-show-menu 0.1)
- '(ac-modes
-   (quote
-    (emacs-lisp-mode lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode coq-mode haskell-mode agda-mode agda2-mode python-mode fundamental-mode)))
- '(global-auto-complete-mode t)
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (2048-game auto-complete haskell-mode hungry-delete markdown-mode openwith proof-general smex switch-window)))
+    (haskell-mode hungry-delete markdown-mode openwith proof-general smex switch-window)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 (custom-set-faces

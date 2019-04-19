@@ -8,15 +8,18 @@
 (require 'cl)
 
 (defvar my/packages '(
-                auto-complete
-                haskell-mode
-                hungry-delete
-                markdown-mode
-                openwith
-                proof-general
-                smex
-                switch-window
-                ) "Default packages")
+		      2048-game
+		      company
+		      expand-region
+		      haskell-mode
+		      hungry-delete
+		      markdown-mode
+		      openwith
+		      popwin
+		      proof-general
+		      smex
+		      switch-window
+		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
 

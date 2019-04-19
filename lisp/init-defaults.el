@@ -5,11 +5,14 @@
 (scroll-bar-mode -1)
 (setq auto-save-default nil)
 
+
 ;; quickly open init.el
 (defun open-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+
+(global-company-mode 1)
 
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
@@ -38,5 +41,11 @@
 ;; org-mode truncate
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
+;; live reload
+(global-auto-revert-mode 1)
+
+;; move cursor to created window
+(require 'popwin)
+(popwin-mode 1)
 
 (provide 'init-defaults)
