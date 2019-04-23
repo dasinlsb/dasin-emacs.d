@@ -3,7 +3,8 @@
   (require `package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+			   ("org" . "http://orgmode.org/elpa/"))))
 
 (require 'cl)
 
@@ -14,6 +15,7 @@
 		      expand-region
 		      haskell-mode
 		      helm-ag
+		      htmlize
 		      hungry-delete
 		      markdown-mode
 		      openwith

@@ -14,6 +14,7 @@
 
 (global-company-mode 1)
 
+(require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
@@ -38,8 +39,9 @@
 	)
   )
 
-;; org-mode truncate
+;; org-mode 
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+(setq org-src-fontify-natively t)
 
 ;; live reload
 (global-auto-revert-mode 1)
