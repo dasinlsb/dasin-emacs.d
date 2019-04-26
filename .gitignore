@@ -2,8 +2,8 @@
 !.gitignore
 !README.md
 !init.el
-!lisp
-!*/
+!lisp/
+!lisp/*
 
 # Compiled
 *.elc

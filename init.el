@@ -8,23 +8,52 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-
-
 ;; Package-Management
 ;; ------------------
 (require 'init-packages)
+
+
+;; temp setting
+(setq inhibit-splash-screen 1)
+(tool-bar-mode -1)
+(global-hl-line-mode 1)
+(setq make-backup-files nil)
+(scroll-bar-mode -1)
+(setq auto-save-default nil)
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-linum-mode t)
+(show-paren-mode t)
+(size-indication-mode t)
+;; quickly open init.el
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+;; ---------
+
+
+(eval-when-compile
+  (require 'use-package))
+
+(require 'init-hungry-delete)
+(require 'init-recentf)
+(require 'init-company)
+(require 'init-openwith)
+(require 'init-popwin)
+(require 'init-ivy)
+(require 'init-irony)
+(require 'init-switch-window)
+(require 'init-expand-region)
+(require 'init-flycheck)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (haskell-mode hungry-delete markdown-mode openwith proof-general switch-window)))
- '(show-paren-mode t)
- '(size-indication-mode t))
+    (irony haskell-mode hungry-delete markdown-mode openwith proof-general switch-window))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,13 +61,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-
-
 ;; Defaults
 ;; --------
 (require 'init-defaults)
-
-
-;; Key-Bindings
-;; ------------
-(require 'init-keybindings)

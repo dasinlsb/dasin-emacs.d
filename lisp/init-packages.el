@@ -11,18 +11,25 @@
 (defvar my/packages '(
 		      2048-game
 		      company
+		      company-irony
+		      company-irony-c-headers
 		      counsel
 		      expand-region
+		      flycheck
+		      flycheck-irony
 		      haskell-mode
 		      helm-ag
 		      htmlize
 		      hungry-delete
+		      irony
+		      irony-eldoc
 		      markdown-mode
 		      openwith
 		      popwin
 		      proof-general
 		      swiper
 		      switch-window
+		      use-package
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
