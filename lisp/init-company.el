@@ -10,4 +10,9 @@
   :config
   (add-to-list 'company-backends '(company-irony-c-headers company-irony)))
 
+(use-package intero
+  :config
+  (add-hook 'haskell-mode-hook 'intero-mode))
+	    
+
 (provide 'init-company)

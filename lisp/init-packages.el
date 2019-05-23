@@ -14,6 +14,7 @@
 		      company-irony
 		      company-irony-c-headers
 		      counsel
+		      csharp-mode
 		      expand-region
 		      flycheck
 		      flycheck-irony
@@ -21,8 +22,10 @@
 		      helm-ag
 		      htmlize
 		      hungry-delete
+		      intero
 		      irony
 		      irony-eldoc
+		      js2-mode
 		      markdown-mode
 		      openwith
 		      popwin
@@ -30,6 +33,7 @@
 		      swiper
 		      switch-window
 		      use-package
+		      yasnippet
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
