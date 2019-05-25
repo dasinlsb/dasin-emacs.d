@@ -25,6 +25,7 @@
 (global-linum-mode t)
 (show-paren-mode t)
 (size-indication-mode t)
+(set-default-font "-outline-Courier New-normal-normal-normal-mono-20-*-*-*-c-*-iso8859-1")
 ;; quickly open init.el
 (defun open-init-file()
   (interactive)
