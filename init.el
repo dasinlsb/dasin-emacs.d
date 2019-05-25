@@ -15,10 +15,11 @@
 
 ;; temp setting
 (setq inhibit-splash-screen 1)
-(tool-bar-mode -1)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
 ;; (global-hl-line-mode 1)
 (setq make-backup-files nil)
-(scroll-bar-mode -1)
+(scroll-bar-mode 0)
 (setq auto-save-default nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-linum-mode t)
