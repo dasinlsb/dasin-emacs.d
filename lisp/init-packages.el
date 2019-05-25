@@ -14,6 +14,7 @@
 		      company-irony-c-headers
 		      counsel
 		      csharp-mode
+		      esup
 		      expand-region
 		      flycheck
 		      flycheck-irony

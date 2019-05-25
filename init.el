@@ -15,14 +15,14 @@
 
 ;; temp setting
 (setq inhibit-splash-screen 1)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
+;;(tool-bar-mode 0)
+;;(menu-bar-mode 0)
 ;; (global-hl-line-mode 1)
 (setq make-backup-files nil)
-(scroll-bar-mode 0)
+;;(scroll-bar-mode 0)
 (setq auto-save-default nil)
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-linum-mode t)
+;;(global-linum-mode t)
 (show-paren-mode t)
 (size-indication-mode t)
 (set-default-font "-outline-Courier New-normal-normal-normal-mono-20-*-*-*-c-*-iso8859-1")
