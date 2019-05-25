@@ -33,6 +33,7 @@
 		      switch-window
 		      use-package
 		      yasnippet
+		      zenburn-theme
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
