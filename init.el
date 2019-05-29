@@ -69,3 +69,5 @@
 ;; Defaults
 ;; --------
 (require 'init-defaults)
+
+(require 'init-keybinding)
