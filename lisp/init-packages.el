@@ -29,6 +29,7 @@
 		      markdown-mode
 		      openwith
 		      popwin
+		      powershell
 		      proof-general
 		      swiper
 		      switch-window

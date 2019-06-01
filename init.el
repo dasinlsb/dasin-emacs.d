@@ -47,6 +47,7 @@
 (require 'init-switch-window)
 (require 'init-expand-region)
 (require 'init-flycheck)
+(require 'init-shell)
 
 (require 'init-theme)
 
