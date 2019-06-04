@@ -1,7 +1,7 @@
 
 
-(global-set-key (kbd "M-n") 'my-window-move-down)
-(global-set-key (kbd "M-p") 'my-window-move-up)
+(global-set-key (kbd "M-]") 'my-window-move-down)
+(global-set-key (kbd "M-[") 'my-window-move-up)
 
 (defun my-window-move-up()
     (interactive)
