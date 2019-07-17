@@ -31,9 +31,12 @@
 		      popwin
 		      powershell
 		      proof-general
+		      rust-mode
 		      swiper
 		      switch-window
+		      tide
 		      use-package
+		      web-mode
 		      yasnippet
 		      zenburn-theme
 		      ) "Default packages")

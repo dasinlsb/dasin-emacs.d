@@ -43,7 +43,7 @@
 (require 'init-popwin)
 (require 'init-ivy)
 (require 'init-irony)
-(require 'init-js)
+(require 'init-web)
 (require 'init-switch-window)
 (require 'init-expand-region)
 (require 'init-flycheck)
