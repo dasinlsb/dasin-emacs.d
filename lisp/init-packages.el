@@ -14,10 +14,12 @@
 		      company-irony-c-headers
 		      counsel
 		      csharp-mode
+		      diff-hl
 		      esup
 		      expand-region
 		      flycheck
 		      flycheck-irony
+		      magit
 		      haskell-mode
 		      helm-ag
 		      htmlize
