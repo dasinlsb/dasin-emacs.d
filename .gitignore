@@ -1,18 +1,15 @@
-*
-!.gitignore
-!README.md
-!init.el
-!lisp/
-!lisp/*
+# emacs
+/auto-save-list/
+/elpa/
 
-# Compiled
-*.elc
+/custom.el
 
-# Packaging
-.cask
+# additional
+/transient/
+/var/
 
-# Backup files
-*~
-
-# Undo-tree save-files
-*.~undo-tree
+/history
+/recentf
+/.session
+/.smex-items
+/projectile-bookmarks.eld

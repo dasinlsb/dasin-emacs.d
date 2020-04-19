@@ -1,4 +1,3 @@
-(use-package powershell
-)
+(require-package 'powershell)
 
 (provide 'init-shell)

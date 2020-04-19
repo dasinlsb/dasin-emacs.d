@@ -1,62 +1,40 @@
-;; package management
-(when (>= emacs-major-version 24)
-  (require `package)
-  (package-initialize)
-  (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+;;; init-elpa.el --- Settings and helpers for package.el -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+(require 'package)
+
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 (require 'cl)
 
-(defvar my/packages '(
-		      2048-game
-		      company
-		      company-irony
-		      company-irony-c-headers
-		      counsel
-		      csharp-mode
-		      diff-hl
-		      esup
-		      expand-region
-		      flycheck
-		      flycheck-irony
-		      magit
-		      haskell-mode
-		      helm-ag
-		      htmlize
-		      hungry-delete
-		      intero
-		      irony
-		      irony-eldoc
-		      js2-mode
-		      markdown-mode
-		      openwith
-		      popwin
-		      powershell
-		      proof-general
-		      rust-mode
-		      swiper
-		      switch-window
-		      tide
-		      use-package
-		      web-mode
-		      yasnippet
-		      zenburn-theme
-		      ) "Default packages")
+(defun require-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (or (package-installed-p package min-version)
+      (let* ((known (cdr (assoc package package-archive-contents)))
+             (versions (mapcar #'package-desc-version known)))
+        (if (cl-find-if (lambda (v) (version-list-<= min-version v)) versions)
+            (package-install package)
+          (if no-refresh
+              (error "No version of %s >= %S is available" package min-version)
+            (package-refresh-contents)
+            (require-package package min-version t))))))
 
-(setq package-selected-packages my/packages)
+(defun maybe-require-package (package &optional min-version no-refresh)
+  "Try to install PACKAGE, and return non-nil if successful.
+In the event of failure, return nil and print a warning message.
+Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+available package lists will not be re-downloaded in order to
+locate PACKAGE."
+  (condition-case err
+      (require-package package min-version no-refresh)
+    (error
+     (message "Couldn't install optional package `%s': %S" package err)
+     nil)))
 
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
-    when (not (package-installed-p pkg)) do (return nil)
-    finally (return t)))
-
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg my/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
-
+(package-initialize)
 
 (provide 'init-packages)
+;;; init-packages.el ends here

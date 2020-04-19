@@ -1,75 +1,59 @@
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;;(setq debug-on-error t)
+(let ((minver "24.4"))
+  (when (version< emacs-version minver)
+    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+(when (version< emacs-version "25.1")
+  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-benchmarking) ;; Measure startup time
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-;; Package-Management
-;; ------------------
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(require 'init-utils)
 (require 'init-packages)
 
+(require-package 'diminish)
 
-;; temp setting
-(setq inhibit-splash-screen 1)
-;;(tool-bar-mode 0)
-;;(menu-bar-mode 0)
-;; (global-hl-line-mode 1)
-(setq make-backup-files nil)
-;;(scroll-bar-mode 0)
-(setq auto-save-default nil)
-(fset 'yes-or-no-p 'y-or-n-p)
-;;(global-linum-mode t)
-(show-paren-mode t)
-(size-indication-mode t)
-;;(set-default-font "-outline-Courier New-normal-normal-normal-mono-20-*-*-*-c-*-iso8859-1")
-;; quickly open init.el
-(defun open-init-file()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-;; ---------
-
-
-(eval-when-compile
-  (require 'use-package))
-
-(require 'init-hungry-delete)
-(require 'init-recentf)
-(require 'init-company)
-(require 'init-openwith)
-(require 'init-popwin)
-(require 'init-ivy)
-(require 'init-irony)
-(require 'init-web)
-(require 'init-switch-window)
-(require 'init-expand-region)
+(require 'init-gui-frames)
 (require 'init-flycheck)
-(require 'init-shell)
+(require 'init-recentf)
+(require 'init-smex)
+(require 'init-ivy)
+(require 'init-hippie-expand)
+(require 'init-company)
+(require 'init-windows)
+(require 'init-sessions)
+(require 'init-isearch)
+
+(require 'init-editing)
+
+(require 'init-vc)
 (require 'init-git)
+(require 'init-github)
 
-(require 'init-theme)
+(require 'init-projectile)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (irony haskell-mode hungry-delete markdown-mode openwith proof-general switch-window))))
+(require 'init-markdown)
+(require 'init-csv)
+(require 'init-org)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(when (fboundp 'global-eldoc-mode)
+  (add-hook 'after-init-hook 'global-eldoc-mode))
 
-;; Defaults
-;; --------
-(require 'init-defaults)
+(fset 'yes-or-no-p 'y-or-n-p)
 
-(require 'init-keybinding)
+(require 'init-openwith)
+(require 'init-shell)
+
+(require 'init-themes)
+
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+(provide 'init)
+;;; init.el ends here
