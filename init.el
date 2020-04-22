@@ -21,6 +21,10 @@
 (menu-bar-mode 0)
 (setq frame-title-format "emacs@%b")
 
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
 (require 'init-packages)
 
 (require-package 'diminish)
