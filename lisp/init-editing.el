@@ -346,20 +346,26 @@ ORIG is the advised function, which is called with its ARGS."
 (advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
 
 
-
+;; My preferences
 ;; Move several lines with current line hilighting
-(global-set-key (kbd "M-]") 'my-window-move-down)
-(global-set-key (kbd "M-[") 'my-window-move-up)
 
-(defun my-window-move-up()
-    (interactive)
-    (scroll-down 3)
-    (previous-line 3))
+(defun scroll-down-in-place ()
+  (interactive)
+  (previous-line 3)
+  (scroll-down 3))
 
-(defun my-window-move-down()
-    (interactive)
-    (scroll-up 3)
-    (next-line 3))
+(defun scroll-up-in-place ()
+  (interactive)
+  (next-line 3)
+  (scroll-up 3))
+
+(global-set-key (kbd "M-[") 'scroll-down-in-place)
+(global-set-key (kbd "M-]") 'scroll-up-in-place)
+(global-set-key (kbd "M-;") '(lambda () (interactive) (scroll-down 3)))
+(global-set-key (kbd "M-'") '(lambda () (interactive) (scroll-up 3)))
+
+;; auto company for parens
+(electric-pair-mode t)
 
 (provide 'init-editing)
-;;; init-editing-utils.el ends here
+;;; init-editing.el ends here
