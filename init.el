@@ -11,6 +11,7 @@
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 (require 'init-benchmarking) ;; Measure startup time
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -41,6 +42,7 @@
 (require 'init-isearch)
 
 (require 'init-editing)
+(require 'init-tab)
 
 (require 'init-vc)
 (require 'init-git)

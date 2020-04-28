@@ -7,9 +7,11 @@
 mv ~/.emacs.d ~/.emacs.d.bak
 ```
 
-2. Clone this repository as new configuration
+2. Clone this repository and submodule as new configuration
 ```sh
 git clone https://github.com/dasinlsb/dasin-emacs.d ~/.emacs.d
+cd ~/.emacs.d
+git submodule update --init
 ```
 
 > Windows users may replace `~/emacs.d` with `~\AppData\Roaming\.emacs.d`
