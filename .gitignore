@@ -8,6 +8,7 @@
 /transient/
 /var/
 
+/.emacs.desktop
 /history
 /recentf
 /.session

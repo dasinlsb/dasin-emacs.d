@@ -17,11 +17,6 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-utils)
 
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(setq frame-title-format "emacs@%b")
-
 (defun open-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
