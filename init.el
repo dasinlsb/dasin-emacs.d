@@ -55,7 +55,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (require 'init-openwith)
-(require 'init-shell)
 
 (require 'init-themes)
 
