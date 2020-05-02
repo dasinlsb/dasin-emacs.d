@@ -35,6 +35,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-isearch)
+(require 'init-projectile)
 
 (require 'init-editing)
 (require 'init-tab)
@@ -43,7 +44,7 @@
 (require 'init-git)
 (require 'init-github)
 
-(require 'init-projectile)
+(require 'init-lsp)
 
 (require 'init-markdown)
 (require 'init-csv)
