@@ -49,6 +49,7 @@
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-org)
+(require 'init-rust)
 
 (when (fboundp 'global-eldoc-mode)
   (add-hook 'after-init-hook 'global-eldoc-mode))
