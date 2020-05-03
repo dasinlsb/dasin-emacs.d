@@ -150,8 +150,12 @@
 ;; Expand region
 ;;----------------------------------------------------------------------------
 (require-package 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
 
+; (global-set-key (kbd "C-=") 'er/expand-region)
+(defhydra hydra-expand-region (global-map "C-c")
+  "expand-region"
+  ("=" er/expand-region "Expand")
+  ("-" er/contract-region "Contract"))
 
 ;;----------------------------------------------------------------------------
 ;; Don't disable case-change functions
@@ -169,7 +173,7 @@
 ;;----------------------------------------------------------------------------
 ;; Handy key bindings
 ;;----------------------------------------------------------------------------
-(global-set-key (kbd "C-.") 'set-mark-command)
+(global-set-key (kbd "C-c .") 'set-mark-command)
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
 (when (maybe-require-package 'avy)
@@ -177,22 +181,44 @@
 
 (require-package 'multiple-cursors)
 ;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; From active region to multiple cursors:
-(global-set-key (kbd "C-c m r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c m c") 'mc/edit-lines)
-(global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
+
+;; ## following keybindings are replaced by hydra ##
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-c m r") 'set-rectangular-region-anchor)
+;; (global-set-key (kbd "C-c m c") 'mc/edit-lines)
+;; (global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
+;; (global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
+(defhydra hydra-multiple-cursors (:hint nil)
+    "
+ Up^^             Down^^           Miscellaneous
+------------------------------------------------------------------
+ [_p_]   Next     [_n_]   Next     [_l_] Edit lines
+ [_P_]   Skip     [_N_]   Skip     [_a_] Mark all
+ [_M-p_] Unmark   [_M-n_] Unmark   [_s_] Search
+ [Click] Cursor at point       [_q_] Quit"
+    ("l" mc/edit-lines :exit t)
+    ("a" mc/mark-all-like-this :exit t)
+    ("n" mc/mark-next-like-this)
+    ("N" mc/skip-to-next-like-this)
+    ("M-n" mc/unmark-next-like-this)
+    ("p" mc/mark-previous-like-this)
+    ("P" mc/skip-to-previous-like-this)
+    ("M-p" mc/unmark-previous-like-this)
+    ("s" mc/mark-all-in-region-regexp :exit t)
+    ("q" nil))
+
+(global-set-key (kbd "C-c m") 'hydra-multiple-cursors/body)
 
 
 ;; Train myself to use M-f and M-b instead
 (global-unset-key [M-left])
 (global-unset-key [M-right])
 
-
+(global-set-key (kbd "C-c ;") 'comment-region)
+(global-set-key (kbd "C-c '") 'uncomment-region)
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."

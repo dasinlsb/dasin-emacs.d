@@ -36,5 +36,7 @@ locate PACKAGE."
 
 (package-initialize)
 
+(require-package 'hydra)
+
 (provide 'init-packages)
 ;;; init-packages.el ends here
