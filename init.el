@@ -46,6 +46,7 @@
 
 (require 'init-lsp)
 
+(require 'init-shell)
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-org)
