@@ -2,20 +2,41 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq lsp-keymap-prefix "C-c l")
+;; (setq lsp-keymap-prefix "C-c l")
 
 (require-package 'lsp-mode)
+
+(setq lsp-prefre-capf t)
 
 ;; lsp-ui
 (require-package 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
-;; which-key
-(after-load 'which-key
-  (progn
-    (diminish 'which-key-mode)
-    (add-hook 'lsp-mode 'lsp-enable-which-key-integration)
-    ))
+(defhydra hydra-lsp (:exit t :hint nil)
+    "
+ Buffer^^               Server^^                   Symbol
+-------------------------------------------------------------------------------------
+ [_f_] format           [_M-r_] restart            [_d_] declaration  [_i_] implementation  [_o_] documentation
+ [_m_] imenu            [_S_]   shutdown           [_D_] definition   [_t_] type            [_r_] rename
+ [_x_] execute action   [_M-s_] describe session   [_R_] references   [_s_] signature"
+    ("d" lsp-find-declaration)
+    ("D" lsp-ui-peek-find-definitions)
+    ("R" lsp-ui-peek-find-references)
+    ("i" lsp-ui-peek-find-implementation)
+    ("t" lsp-find-type-definition)
+    ("s" lsp-signature-help)
+    ("o" lsp-describe-thing-at-point)
+    ("r" lsp-rename)
+
+    ("f" lsp-format-buffer)
+    ("m" lsp-ui-imenu)
+    ("x" lsp-execute-code-action)
+
+    ("M-s" lsp-describe-session)
+    ("M-r" lsp-restart-workspace)
+    ("S" lsp-shutdown-workspace))
+
+(global-set-key (kbd "C-c l") 'hydra-lsp/body)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
