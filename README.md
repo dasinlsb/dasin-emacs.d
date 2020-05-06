@@ -1,6 +1,6 @@
 # dasin's Emacs configuration
 
-## Usages
+## Installation
 
 1. Backup and remove your original configuration, like:
 ```sh
@@ -15,6 +15,18 @@ git submodule update --init
 ```
 
 > Windows users may replace `~/emacs.d` with `~\AppData\Roaming\.emacs.d`
+
+## Preferred shortcuts
+
++ `C-c .`: set-mark-command
+
++ `C-c =/-`: expand/contract region (hydra)
+
++ `C-c l`: lsp (hydra)
+
++ `C-c s`: awesome-tab (hydra)
+
++ `C-c m`: mc (hydra)
 
 ## References
 
