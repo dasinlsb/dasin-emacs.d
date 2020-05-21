@@ -34,7 +34,7 @@
 (require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
-(require 'init-isearch)
+;; (require 'init-isearch)
 (require 'init-projectile)
 
 (require 'init-editing)

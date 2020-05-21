@@ -67,6 +67,7 @@ instead."
 
 (when (maybe-require-package 'swiper)
   (after-load 'ivy
+    (global-set-key (kbd "C-s") 'swiper)
     (define-key ivy-mode-map (kbd "M-s /") 'swiper-thing-at-point)))
 
 
