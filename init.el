@@ -1,3 +1,4 @@
+
 ;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
@@ -51,6 +52,7 @@
 (require 'init-csv)
 (require 'init-org)
 (require 'init-rust)
+(require 'init-cpp)
 
 (when (fboundp 'global-eldoc-mode)
   (add-hook 'after-init-hook 'global-eldoc-mode))

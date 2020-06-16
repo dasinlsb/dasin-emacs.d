@@ -4,9 +4,14 @@
 
 ;; (setq lsp-keymap-prefix "C-c l")
 
+(setq lsp-keymap-prefix "C-c l")
+
 (require-package 'lsp-mode)
 
 (setq lsp-prefre-capf t)
+
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
 
 ;; lsp-ui
 (require-package 'lsp-ui)
@@ -36,7 +41,10 @@
     ("M-r" lsp-restart-workspace)
     ("S" lsp-shutdown-workspace))
 
-(global-set-key (kbd "C-c l") 'hydra-lsp/body)
+;; (global-set-key (kbd "C-c l") 'hydra-lsp/body)
+
+(with-eval-after-load 'lsp-mode
+    (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
