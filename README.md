@@ -18,7 +18,7 @@ git submodule update --init
 
 ## Preferred shortcuts
 
-+ `C-c .`: set-mark-command
++ `C-c ,`: set-mark-command
 
 + `C-c =/-`: expand/contract region (hydra)
 
