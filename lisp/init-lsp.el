@@ -10,9 +10,6 @@
 
 (setq lsp-prefre-capf t)
 
-(add-hook 'c++-mode-hook #'lsp)
-(add-hook 'c-mode-hook #'lsp)
-
 ;; lsp-ui
 (require-package 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)

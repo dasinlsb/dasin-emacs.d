@@ -9,6 +9,9 @@
           (lambda()
                 (local-set-key  (kbd "C-c C-o") 'ff-find-other-file)))
 
+(add-hook 'c-mode-hook (lambda () (require 'ccls) (lsp)))
+(add-hook 'c++-mode-hook (lambda () (require 'ccls) (lsp)))
+
 (require-package 'cmake-mode)
 
 (provide 'init-cpp)
